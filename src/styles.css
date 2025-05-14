@@ -1,0 +1,48 @@
+/* Define custom theme (simulating Material colors in CSS) */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Colors (you'll need to manually define them, or use the Material color palette directly) */
+:root {
+    --primary-color: #616161; /* Gray color */
+    --accent-color: #607d8b; /* Blue Gray color */
+    --warn-color: #f44336; /* Red color */
+  }
+  
+  /* Global styles */
+  html, body { 
+    height: 100%; 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+  }
+  
+  .container {
+    padding: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .flex-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .mat-elevation-z1 {
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  }
+  
+  .mat-elevation-z2 {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  

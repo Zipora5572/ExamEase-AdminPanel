@@ -1,0 +1,21 @@
+<mat-toolbar class="header">
+  <button mat-icon-button class="menu-button" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  
+  <span class="app-title">Admin Portal</span>
+  
+  <span class="flex-spacer"></span>
+  @if(authService.currentUser){
+    <div class="user-container">
+      <div class="user-avatar">
+        {{ authService.currentUser.firstName.charAt(0) || 'U' }}
+      </div>
+      <div class="user-info">
+        <span class="user-name">{{ authService.currentUser.firstName }} {{ authService.currentUser.lastName }}</span>
+        <!-- <span class="user-role">{{ authService.currentUser.role || 'Administrator' }}</span> -->
+      </div>
+    </div>
+  }
+ 
+</mat-toolbar>

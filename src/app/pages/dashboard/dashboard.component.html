@@ -1,0 +1,107 @@
+<div class="container">
+  <h1 class="mat-headline-5">Dashboard</h1>
+  
+  <div class="dashboard-grid">
+    <!-- Stats Cards Row -->
+    <div class="stats-row">
+      <app-stat-card 
+        icon="people" 
+        iconBgColor="#e8f0fe" 
+        iconColor="#1a73e8" 
+        [value]="totalUsers" 
+        label="Total Users"
+        trend="+5.2% vs last week"
+        trendDirection="up">
+      </app-stat-card>
+      
+      <app-stat-card 
+        icon="today" 
+        iconBgColor="#e6f4ea" 
+        iconColor="#34a853" 
+        [value]="dailyEntries" 
+        label="Today's Entries"
+        trend="+12.3% vs yesterday"
+        trendDirection="up">
+      </app-stat-card>
+      
+      <app-stat-card 
+        icon="date_range" 
+        iconBgColor="#fef7e0" 
+        iconColor="#fbbc04" 
+        [value]="weeklyEntries" 
+        label="Weekly Entries"
+        trend="+8.7% vs last week"
+        trendDirection="up">
+      </app-stat-card>
+      
+      <app-stat-card 
+        icon="person_add" 
+        iconBgColor="#fce8e6" 
+        iconColor="#ea4335" 
+        [value]="newUsers" 
+        label="New Users (Today)"
+        trend="-2.1% vs yesterday"
+        trendDirection="down">
+      </app-stat-card>
+    </div>
+    
+    <!-- Charts Row -->
+    <div class="chart-row">
+      <app-analytics-card title="User Activity Trend">
+        <div class="chart-container">
+          <app-line-chart [chartData]="userActivityData"></app-line-chart>
+        </div>
+      </app-analytics-card>
+      
+      <app-analytics-card title="Action Frequency">
+        <div class="chart-container">
+          <app-pie-chart [chartData]="actionFrequencyData"></app-pie-chart>
+        </div>
+      </app-analytics-card>
+    </div>
+    
+    <!-- Activity Row -->
+    <div class="activity-row">
+      <app-analytics-card title="Popular Pages">
+        <div class="table-container">
+          <table class="popular-pages-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Page</th>
+                <th>Views</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              @for (page of popularPages; track page.path) {
+                <tr>
+                  <td>
+                    <div class="rank-badge" [ngClass]="'rank-' + (popularPages.indexOf(page) + 1)">
+                      {{ popularPages.indexOf(page) + 1 }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="page-path">
+                      <mat-icon class="page-icon">{{ page.icon }}</mat-icon>
+                      {{ page.path }}
+                    </div>
+                  </td>
+                  <td class="page-views">{{ page.views }}</td>
+                
+                </tr>
+              }
+              
+            </tbody>
+          </table>
+        </div>
+      </app-analytics-card>
+      
+      <app-analytics-card title="Hourly Activity">
+        <div class="chart-container">
+          <app-bar-chart [chartData]="hourlyActivityData"></app-bar-chart>
+        </div>
+      </app-analytics-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.sidenav-container {
+  height: 100%;
+  background-color: #f8f9fa;
+}
+
+.sidenav {
+  width: 280px;
+  border-right: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-content {
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 64px);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,13 @@
+<mat-card class="analytics-card">
+    <div class="card-header">
+      <h3 class="card-title">{{ title }}</h3>
+      <div class="card-actions" *ngIf="showActions">
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="card-content">
+      <ng-content></ng-content>
+    </div>
+  </mat-card>

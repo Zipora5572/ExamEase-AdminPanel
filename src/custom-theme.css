@@ -1,0 +1,133 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary-palette: (
+  50: #e8f0fe,
+  100: #c6dafc,
+  200: #a1c2fa,
+  300: #7baaf7,
+  400: #5e97f6,
+  500: #4285f4,  // Google Blue
+  600: #3b78e7,
+  700: #3367d6,
+  800: #2a56c6,
+  900: #1c3aa9,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$accent-palette: (
+  50: #e6f4ea,
+  100: #ceead6,
+  200: #a8dab5,
+  300: #81c995,
+  400: #5bb974,
+  500: #34a853,  // Google Green
+  600: #2d9d4b,
+  700: #238b41,
+  800: #1a7a38,
+  900: #0d5c28,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$warn-palette: (
+  50: #fce8e6,
+  100: #fad2cf,
+  200: #f6aea9,
+  300: #f28b82,
+  400: #ee675c,
+  500: #ea4335,  // Google Red
+  600: #d93025,
+  700: #c5221f,
+  800: #b31412,
+  900: #a50e0e,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(0, 0, 0, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+// Create the theme object
+$admin-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($primary-palette, 500),
+    accent: mat.define-palette($accent-palette, 500),
+    warn: mat.define-palette($warn-palette, 500),
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Google Sans, Roboto, "Helvetica Neue", sans-serif',
+  ),
+  density: 0,
+));
+
+// Apply the theme to all components
+@include mat.all-component-themes($admin-theme);
+
+// Additional global styles
+:root {
+  --primary-color: #4285f4;
+  --accent-color: #34a853;
+  --warn-color: #ea4335;
+  --yellow-color: #fbbc04;
+  
+  --background-color: #f8f9fa;
+  --surface-color: #ffffff;
+  
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-disabled: #9aa0a6;
+  
+  --border-color: #e8eaed;
+  --divider-color: #f1f3f4;
+}
+
+// Typography adjustments
+body {
+  font-family: 'Google Sans', Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Google Sans', Roboto, 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.mat-headline-5 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 400;
+}

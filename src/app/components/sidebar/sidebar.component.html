@@ -1,0 +1,48 @@
+<div class="sidebar-container">
+  <div class="sidebar-header">
+    <div class="logo">
+      <mat-icon>analytics</mat-icon>
+    </div>
+    <h1 class="sidebar-title">Admin Dashboard</h1>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Main</div>
+    <mat-nav-list class="nav-list">
+      <div class="nav-item">
+        <a mat-list-item class="nav-link" routerLink="/dashboard" routerLinkActive="active-link">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      
+      <div class="nav-item">
+        <a mat-list-item class="nav-link" routerLink="/users" routerLinkActive="active-link">
+          <mat-icon>people</mat-icon>
+          <span>User Management</span>
+        </a>
+      </div>
+      
+     
+    </mat-nav-list>
+  </div>
+  
+  <div class="nav-section">
+    <div class="nav-section-title">Account</div>
+    <mat-nav-list class="nav-list">
+      <div class="nav-item">
+        <a mat-list-item class="nav-link" routerLink="/profile" routerLinkActive="active-link">
+          <mat-icon>person</mat-icon>
+          <span>My Profile</span>
+        </a>
+      </div>
+      
+      <div class="nav-item">
+        <a mat-list-item class="nav-link logout-button" (click)="authService.logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </a>
+      </div>
+    </mat-nav-list>
+  </div>
+</div>

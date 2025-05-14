@@ -1,0 +1,77 @@
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .filter-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    
+    mat-form-field {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .user-name-cell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-right: 12px;
+    font-weight: 500;
+  }
+  
+  .role-admin {
+    background-color: #e1bee7;
+    color: #6a1b9a;
+  }
+  
+  .role-manager {
+    background-color: #bbdefb;
+    color: #1565c0;
+  }
+  
+  .role-user {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+  }
+  
+  .status-active {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+  }
+  
+  .status-inactive {
+    background-color: #ffcdd2;
+    color: #c62828;
+  }
+  mat-icon {
+    display: inline-block;
+    width: 24px; /* גודל האייקון */
+    height: 24px; /* גובה האייקון */
+  }
+  
+  mat-icon::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  

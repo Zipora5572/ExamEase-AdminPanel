@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="header-actions">
+      <button mat-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back
+      </button>
+      <h1 class="mat-headline-5">{{ isEditMode ? 'Edit User' : 'Create New User' }}</h1>
+    </div>
+    
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-grid">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" required>
+              @if (userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched) {
+                <mat-error>Name is required</mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" required>
+                @if (userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched) {
+                  <mat-error>Name is required</mat-error>
+                }
+              </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input matInput formControlName="email" type="email" required>
+              @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+                @if (userForm.get('email')?.errors?.['required']) {
+                  <mat-error>Email is required</mat-error>
+                } @else if (userForm.get('email')?.errors?.['email']) {
+                  <mat-error>Invalid email format</mat-error>
+                }
+              }
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option value="manager">Teacher</mat-option>
+                <mat-option value="user">Student</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="phone">
+            </mat-form-field>
+            
+            <div class="status-toggle">
+              <mat-slide-toggle formControlName="status" color="primary">
+                Active
+              </mat-slide-toggle>
+            </div>
+          </div>
+          
+          @if (isEditMode) {
+            <div class="password-section">
+              <h3 class="mat-subtitle-1">Password Management</h3>
+              
+              <div class="form-grid">
+                <mat-form-field appearance="outline">
+                  <mat-label>New Password</mat-label>
+                  <input matInput formControlName="password" type="password">
+                  @if (userForm.get('password')?.invalid && userForm.get('password')?.touched) {
+                    @if (userForm.get('password')?.errors?.['minlength']) {
+                      <mat-error>Password must be at least 8 characters</mat-error>
+                    }
+                  }
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput formControlName="confirmPassword" type="password">
+                </mat-form-field>
+              </div>
+              
+              @if (userForm.errors?.['passwordMismatch']) {
+                <mat-error class="password-mismatch">Passwords do not match</mat-error>
+              }
+            </div>
+          } @else {
+            <div class="form-grid">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+                @if (userForm.get('password')?.invalid && userForm.get('password')?.touched) {
+                  @if (userForm.get('password')?.errors?.['required']) {
+                    <mat-error>Password is required</mat-error>
+                  } @else if (userForm.get('password')?.errors?.['minlength']) {
+                    <mat-error>Password must be at least 8 characters</mat-error>
+                  }
+                }
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password" required>
+              </mat-form-field>
+            </div>
+            
+            @if (userForm.errors?.['passwordMismatch']) {
+              <mat-error class="password-mismatch">Passwords do not match</mat-error>
+            }
+          }
+          
+          <div class="form-actions">
+            <button mat-button type="button" (click)="goBack()">Cancel</button>
+            <button 
+              mat-raised-button 
+              color="primary" 
+              type="submit" 
+              [disabled]="userForm.invalid || isSubmitting">
+              {{ isSubmitting ? 'Saving...' : (isEditMode ? 'Update User' : 'Create User') }}
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
