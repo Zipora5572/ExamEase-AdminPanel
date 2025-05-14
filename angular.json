@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-App": {
+    "ExamEase-Admin": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-app",
+            "outputPath": "dist/examease-admin",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Angular-App:build:production"
+              "buildTarget": "examease-admin:build:production"
             },
             "development": {
-              "buildTarget": "Angular-App:build:development"
+              "buildTarget": "examease-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
